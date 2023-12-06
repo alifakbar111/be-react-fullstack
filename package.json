@@ -12,7 +12,11 @@
   "author": "alif akbar",
   "license": "ISC",
   "dependencies": {
-    "fastify": "^4.24.3"
+    "db-migrate": "^0.11.14",
+    "db-migrate-pg": "^1.5.2",
+    "fastify": "^4.24.3",
+    "fastify-plugin": "^4.5.1",
+    "pg-promise": "^11.5.4"
   },
   "devDependencies": {
     "eslint": "^8.55.0",
