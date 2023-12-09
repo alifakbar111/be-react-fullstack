@@ -19,6 +19,7 @@
     "pg-promise": "^11.5.4"
   },
   "devDependencies": {
+    "dotenv": "^16.3.1",
     "eslint": "^8.55.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^9.1.0",
