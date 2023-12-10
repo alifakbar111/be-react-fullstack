@@ -1,4 +1,7 @@
+const tempService = require("../../services/temp.service");
+
 const route = async (fastify) => {
+  const { getAll, postTitle } = tempService(fastify);
   /**
    * GET route handler that queries the "test" table
    * and returns all records.
@@ -8,7 +11,7 @@ const route = async (fastify) => {
    */
   fastify.get("/", async (request, reply) => {
     try {
-      const result = await fastify.db.query("SELECT * FROM test");
+      const result = await getAll();
 
       reply.code(200).send(result);
     } catch (err) {
@@ -33,10 +36,7 @@ const route = async (fastify) => {
 
       const { title } = request.body;
 
-      const result = await fastify.db.query(
-        "INSERT INTO test (title) VALUES ($1) RETURNING id",
-        [title],
-      );
+      const result = await postTitle(title);
 
       reply.code(201).send(result);
     } catch (err) {
