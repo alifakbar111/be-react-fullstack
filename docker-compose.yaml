@@ -15,6 +15,22 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  db-test:
+    container_name: postgres-test-db
+    image: postgres:14-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: postgres
+      PGDATA: /var/lib/postgresql/data/pgdata-test
+    volumes:
+      - pgdata-test:/var/lib/postgresql/data
+
 volumes:
   pgdata:
+    driver: local
+  pgdata-test:
     driver: local

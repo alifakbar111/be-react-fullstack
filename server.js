@@ -1,4 +1,7 @@
-const PORT = process.env.PORT || 5000;
+// eslint-disable-next-line import/no-extraneous-dependencies
+const dotenv = require("dotenv").config();
+
+const PORT = dotenv.parsed.PORT || 5000;
 
 const server = require("./src/app")({
   logger: {

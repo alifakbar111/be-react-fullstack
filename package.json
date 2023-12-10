@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jest --watchAll",
+    "test:watch": "jest --watchAll --detectOpenHandles --runInBand",
     "start": "nodemon server.js",
     "lint": "eslint '**/*.js' --fix --ignore-pattern node_modules/",
     "format": "prettier --write '**/*.js"
