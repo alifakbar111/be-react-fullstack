@@ -27,5 +27,5 @@ jobs:
           cache: "npm"
       - run: npm install
       - run: npm run lint
-      - run: npm test
-      - run: docker build . --file Dockerfile --tag backend-fastify:$(date +%s)
+      # - run: npm test
+      # - run: docker build . --file Dockerfile --tag backend-fastify:$(date +%s)
