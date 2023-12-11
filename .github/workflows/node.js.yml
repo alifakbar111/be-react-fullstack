@@ -24,18 +24,18 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - run: echo "${{ secrets.DOCKERHUB_USERNAME }}"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
       - name: Build and push
         uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: "Dockerfile"
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/backend-fastify:latest
+      - run:
+          docker build . --file Dockerfile --tag backend-fastify:$(date +%s)
+          # context: .
+          # file: "Dockerfile"
+          # push: true
+          # tags: ${{ secrets.DOCKERHUB_USERNAME }}/backend-fastify:latest
 
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
